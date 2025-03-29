@@ -4,19 +4,9 @@ import "swiper/css"; // Import Swiper styles
 import "swiper/css/effect-fade"; // Import fade effect styles
 import { Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRouter } from "next/navigation";
 
 const Hero = () => {
-  const router = useRouter();
 
-  interface RouteFunction {
-    (name: string): void;
-  }
-
-  const route: RouteFunction = (name) => {
-    router.push(name);
-    // alert("join our Community");
-  };
   const slides = [
     { id: 1, image: "/hero1.jpg", text: "Welcome to the world of Adventure" },
     { id: 2, image: "/hero3.avif", text: "Discover New Horizons" },
@@ -61,12 +51,6 @@ const Hero = () => {
                     )
                   )}
                 </h1>
-                <button
-                  className="bg-orange-500 text-white p-2 rounded mt-4"
-                  onClick={() => route("/signup")}
-                >
-                  Get Start Your Journey
-                </button>
               </div>
             </div>
           </SwiperSlide>

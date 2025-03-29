@@ -13,8 +13,8 @@ const Navbar = () => {
     { name: "About Us", path: "/about" },
     { name: "Online Booking", path: "/onlinebooking" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Login", path: "/auth/login" }, 
-  { name: "Signup", path: "/auth/signup" },
+    { name: "Login", path: "/login" }, 
+  { name: "Signup", path: "/signup" },
   ];
 
   // Toggle menu function

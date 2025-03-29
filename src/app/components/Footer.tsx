@@ -67,8 +67,8 @@ const Footer = () => {
         {/* Testimonials */}
         <div>
           <h3 className="text-lg font-medium text-white">Testimonials</h3>
-          <p className="text-sm mt-2">"Best travel experience ever!" - Jane Doe</p>
-          <p className="text-sm">"Highly recommend Om Tours!" - John Smith</p>
+          <p className="text-sm mt-2">&quot;Best travel experience ever!&quot; - Jane Doe</p>
+          <p className="text-sm">&quot;Highly recommend Om Tours!&quot; - John Smith</p>
         </div>
         <div>
           <h3 className="text-lg font-medium text-white">Follow Us</h3>

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const categories = [
@@ -294,46 +293,38 @@ const categories = [
 ];
 
 const DestinationSlider = () => {
-  const router = useRouter();
-  const navigate = (name: string) => {
-    router.push(name);
-    alert("Login to continue");
-  };
   return (
-    <div id="destinations">
-      {" "}
-      <div className="w-full mx-auto gap-4 p-4">
-        <button onClick={() => navigate("/login")}>Explore More</button>
-        {categories.map((category, index) => (
-          <div key={index} className="mb-12">
-            <h2 className="text-2xl md:text-4xl font-bold mb-4">
-              {category.title}
-            </h2>
-            <div className="flex gap-4 overflow-x-auto no-scrollbar">
-              {category.destinations.map((destination, idx) => (
-                <motion.div
-                  key={idx}
-                  className="min-w-[250px] h-[350px] rounded-lg overflow-hidden shadow-lg bg-gray-800 text-white relative p-4"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Image
-                    src={destination.image}
-                    alt={destination.name}
-                    className="w-full h-40 object-cover rounded-md"
-                  />
-                  <h3 className="text-lg font-semibold mt-2">
-                    {destination.name}
-                  </h3>
-                  <p className="text-sm font-light">{destination.subtitle}</p>
-                  <p className="text-xs mt-2">{destination.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
+    <div id="destinations"> <div className="w-full mx-auto gap-4 p-4">
+    {categories.map((category, index) => (
+      <div key={index} className="mb-12">
+        <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+          {category.title}
+        </h2>
+        <div className="flex gap-4 overflow-x-auto no-scrollbar">
+          {category.destinations.map((destination, idx) => (
+            <motion.div
+              key={idx}
+              className="min-w-[250px] h-[350px] rounded-lg overflow-hidden shadow-lg bg-gray-800 text-white relative p-4"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={destination.image}
+                alt={destination.name}
+                className="w-full h-40 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mt-2">
+                {destination.name}
+              </h3>
+              <p className="text-sm font-light">{destination.subtitle}</p>
+              <p className="text-xs mt-2">{destination.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    ))}
+  </div></div>
+   
   );
 };
 
