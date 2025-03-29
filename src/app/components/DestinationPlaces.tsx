@@ -321,6 +321,8 @@ const DestinationSlider = () => {
                     src={destination.image}
                     alt={destination.name}
                     className="w-full h-40 object-cover rounded-md"
+                    width={250}
+                    height={160}
                   />
                   <h3 className="text-lg font-semibold mt-2">
                     {destination.name}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { LuMenu, LuX } from "react-icons/lu";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +10,8 @@ const Navbar = () => {
 
   // Menu items list for easier mapping
   const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Online Booking", path: "/onlinebooking" },
-    { name: "Contact Us", path: "/contact" },
     { name: "Login", path: "/login" }, 
-  { name: "Signup", path: "/signup" },
+    { name: "Signup", path: "/signup" },
   ];
 
   // Toggle menu function
@@ -24,18 +21,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/50 shadow-lg">
+    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/60 shadow-lg py-2">
       {/* Desktop Navbar */}
-      <div className="hidden md:flex justify-between items-center px-8 py-4">
-        <div className="text-white text-2xl font-bold cursor-pointer">
-          <button onClick={() => router.push("/")}>Om Tours</button>
-        </div>
+      <div className="hidden md:flex justify-between items-center px-8 py-3">
+        {/* Logo */}
+        <button className="text-white" onClick={() => router.push("/")}>
+        Geek_a_bytes
+        </button>
+
+        {/* Menu Items */}
         <ul className="flex gap-10">
           {menuItems.map((item, index) => (
             <li key={index}>
               <button
                 onClick={() => handleNavigation(item.path)}
-                className="text-white text-xl font-bold transition-all duration-300 hover:scale-105"
+                className="text-white text-lg font-medium transition-all duration-300 hover:scale-105"
                 aria-label={item.name}
               >
                 {item.name}
@@ -46,10 +46,13 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden flex justify-between items-center px-5 py-4">
-        <div className="text-white text-2xl font-bold">
-          <button onClick={() => router.push("/")}>Om Tours</button>
-        </div>
+      <div className="md:hidden flex justify-between items-center px-5 py-3">
+        {/* Logo for Mobile */}
+        <button onClick={() => router.push("/")}>
+          Geek_a_bytes
+        </button>
+
+        {/* Menu Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white text-3xl focus:outline-none"
@@ -61,7 +64,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full backdrop-blur-lg bg-black/60 py-6 flex flex-col items-center space-y-6 text-white text-xl shadow-lg animate-slideInDown md:hidden">
+        <div className="absolute top-16 left-0 w-full backdrop-blur-lg bg-black/70 py-6 flex flex-col items-center space-y-6 text-white text-lg shadow-lg animate-slideInDown md:hidden">
           {menuItems.map((item, index) => (
             <button
               key={index}
